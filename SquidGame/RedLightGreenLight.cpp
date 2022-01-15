@@ -1,0 +1,68 @@
+//
+// Created by baciv on 15.01.2022.
+//
+
+#include "RedLightGreenLight.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+#include "Users.h"
+#include "Contenders.h"
+#include "Supervisors.h"
+#include "Game.h"
+#include <jsoncpp/json/value.h>
+#include <jsoncpp/json/json.h>
+#include <fstream>
+
+using namespace std;
+
+extern vector<Contenders> listOfContenders;
+extern vector<Supervisors> listOfSupervisors;
+
+RedLightGreenLight::~RedLightGreenLight(void) {
+
+    cout << endl << "Game Red Light Green Light is over." << endl <<
+         "----------------------------------------------" << endl;
+
+}
+
+void RedLightGreenLight::startGame() {
+
+    cout << endl <<
+         "----------------------------------------------" << endl <<
+         "Game Red Light Green Light has begun." << endl << endl;
+
+    cout << "The following contenders will proceed to the next stage: ";
+
+
+    for (auto i = listOfContenders.begin(); i != listOfContenders.end(); ++i) {
+
+        if (i->getContenderID() % 2 == 0) {
+
+
+            for (auto j = listOfSupervisors.begin(); j != listOfSupervisors.end(); ++j) {
+
+                if (j->getTeamID() == i->getTeamID()) {
+
+                    j->setSupervisorPrize(j->getSupervisorPrize() + i->getDebt());
+
+                }
+
+            }
+
+            auto pos = i;
+            listOfContenders.erase(pos);
+
+
+        }
+        else
+            i->getAllUserInfo();
+
+    }
+
+    cout << endl;
+
+}
+
+
