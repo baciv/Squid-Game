@@ -24,12 +24,17 @@ vector<Contenders> marblesWinningContenders;
 
 int Marbles::counterFights = 0;
 
+// Game Destructor
+// I gave him the use of indicating the end game
+
 Marbles::~Marbles(void) {
 
     cout << endl << "Game Marbles is over." << endl <<
          "----------------------------------------------" << endl;
 
 }
+
+// Method that determines the effects of the game on contenders
 
 
 void Marbles::startGame() {
@@ -41,6 +46,11 @@ void Marbles::startGame() {
     srand(time(nullptr));
 
     start:
+
+    // Treat a exceptionn
+    // Contenders are divided into pairs of two.
+    // If a contestant is left without a pair, he or she moves on to the next stage.
+
     try {
 
         if (listOfContenders.size() % 2 == 0)
@@ -79,6 +89,10 @@ void Marbles::startGame() {
 
     }
 
+    // Here we divide the contenders into pairs of two.
+    // Each of them will generate a random number.
+    // The one who generates the lowest number goes to the next stage.
+
 
     for (this->counterFights = 0; this->counterFights < this->maxFightsNumber; this->counterFights++) {
 
@@ -101,7 +115,7 @@ void Marbles::startGame() {
                 int fighterValue1 = rand() % 1000 + 1;
                 int fighterValue2 = rand() % 1000 + 1;
 
-                if (fighterValue1 > fighterValue2) {
+                if (fighterValue1 < fighterValue2) {
 
                     Contenders auxContender;
 
@@ -136,7 +150,7 @@ void Marbles::startGame() {
 
                     listOfContenders.erase(fighter2);
 
-                } else if (fighterValue1 < fighterValue2) {
+                } else if (fighterValue1 > fighterValue2) {
 
                     Contenders auxContender;
 

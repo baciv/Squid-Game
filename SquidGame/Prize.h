@@ -25,6 +25,8 @@ extern vector<Users> listOfUsers;
 extern vector<Supervisors> listOfSupervisors;
 extern vector<Contenders> listOfContenders;
 
+// Template method which show us the prize a user receives.
+
 template <typename T>
 void showPrize(T var){
 
@@ -36,18 +38,20 @@ template<>
 void showPrize<Supervisors>(Supervisors supervisor){
 
     supervisor.setSupervisorPrize(supervisor.getDebt() * 10);
-    cout << "Supervisorul concurentului castigator a primit suma: " << supervisor.getSupervisorPrize() << "$." << endl;
+    cout << "The winning contestant's supervisor received the amount: " << supervisor.getSupervisorPrize() << "$." << endl;
 
 }
 
 template<>
 void showPrize<Contenders>(Contenders contender){
 
-    cout << "Concurentul castigator a primit suma: ";
+    cout << "The winning contestant received the amount: ";
     contender.getTotalPrizePool();
     cout << "$" << endl;
 
 }
+
+// Method that helps in ranking supervisors by earnings.
 
 bool compareEarning(Supervisors s1, Supervisors s2){
 

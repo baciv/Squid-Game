@@ -21,6 +21,8 @@ extern vector<Supervisors> listOfSupervisors;
 vector<Contenders> winningContenders;
 vector<Contenders> listOfContendersCopy1;
 
+// Game Destructor
+// I gave him the use of indicating the end game
 
 TugOfWar::~TugOfWar(void) {
 
@@ -29,6 +31,8 @@ TugOfWar::~TugOfWar(void) {
 
 }
 
+
+// Method that groups contenders into 4 teams for the Thug Of War challenge.
 
 void TugOfWar::groupContenders(int x) {
 
@@ -52,6 +56,8 @@ void TugOfWar::groupContenders(int x) {
         listOfContendersCopy1.erase(pos);
 
     }
+
+    // At the end of each array we put the total weight of the group.
 
     this->group1[this->maxGroupMembers] = groupWeight;
     groupWeight = 0;
@@ -110,6 +116,7 @@ void TugOfWar::groupContenders(int x) {
     this->group4[this->maxGroupMembers] = groupWeight;
     groupWeight = 0;
 
+    // I display the groups to ensure fair distribution
 
     cout << endl << endl  << endl;
     cout << "Group1: ";
@@ -138,6 +145,9 @@ void TugOfWar::groupContenders(int x) {
     cout << endl;
 
 }
+
+// Method that eliminates a group after a round of Thug Of War.
+// When a group is eliminated, all contenders belonging to that group are eliminated.
 
 void TugOfWar::groupElimination(int *group) {
 
@@ -169,12 +179,16 @@ void TugOfWar::groupElimination(int *group) {
 
 }
 
+// Method that determines the effects of the game on contenders
 
 void TugOfWar::startGame() {
 
     cout << endl <<
          "----------------------------------------------" << endl <<
          "Game Tug Of War has begun." << endl << endl;
+
+    // Here we treat a exception
+    // The rules say that those who remain unallocated in the 4 teams automatically advance to the next stage.
 
     try {
 
@@ -225,6 +239,11 @@ void TugOfWar::startGame() {
 
     }
 
+
+    // Here we have the rounds of the game
+    // Semi-finals: Group1 vs Group2 & Group3 vs Group4
+    // Finanl: TBD vs TBD
+    // Game Rules: The group with the highest weight wins.
 
     int winner1 = 0;
     int winner2 = 0;

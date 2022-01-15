@@ -17,6 +17,7 @@
 extern vector<Users> listOfUsers;
 vector<Supervisors> listOfSupervisors;
 
+// getters & setters
 
 string Supervisors::getFirstName() {
 
@@ -132,10 +133,12 @@ void Supervisors::showAll() {
 }
 
 
+// static int for counter Supervisors for not to exceed the limit of 9
 int Supervisors::counterSupervisors = 1;
+// static int for counter Masks allocation for not to exceed the limit of 3 supervisors with the same mask
 int Supervisors::counterMasks = 1;
 
-
+// Transform User to Supervisor
 
 void Supervisors::roleAllocation() {
 

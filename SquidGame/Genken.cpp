@@ -24,12 +24,24 @@ vector<Contenders> genkenWinningContenders;
 
 int Genken::counterFights = 0;
 
+// Game Destructor
+// I gave him the use of indicating the end game
+
 Genken::~Genken(void) {
 
     cout << endl << "Game Genken is over." << endl <<
          "----------------------------------------------" << endl;
 
 }
+
+// Method that determines the effects of the game on contenders
+// In descending order by id they will play genken.
+// Each of the contenders will randomly generate rock (1), paper (2) or scissors (3).
+// Rules of the game: Stone beats scissors, but loses to paper.
+//                          Paper beats rock, but loses to scissors.
+//                          Scissors beat paper, but lose to stone.
+//                          In case of a tie, the option is generated again to one of the contenders.
+
 
 void Genken::startGame() {
 

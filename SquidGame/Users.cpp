@@ -30,8 +30,10 @@ Users::Users(string firstName, string lastName, string city,
 
 }
 
-
+// import function
 void Users::importUsers() {
+
+    // from JSON file
 
     ifstream file("DatabaseOfUsers.json");
     Json::Value actualJson;
@@ -41,6 +43,7 @@ void Users::importUsers() {
     reader.parse(file, actualJson);
     srand(time(nullptr));
 
+    // save all data from Database as Users objects
 
     for(i = 0; i < actualJson.size(); i++){
 
@@ -64,6 +67,8 @@ void Users::importUsers() {
 
 
 }
+
+// getters & setters
 
 string Users::getFirstName() {
 

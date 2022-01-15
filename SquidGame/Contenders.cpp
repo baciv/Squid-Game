@@ -16,8 +16,13 @@ extern vector<Users> listOfUsers;
 vector<Contenders> listOfContenders;
 vector<Contenders> listOfContendersCopy;
 
+// static int for unique conterder ID
 int Contenders::counterContendersID = 1;
+// static int to calculate final Prize for winner
 int Contenders::totalPrizePool = 0;
+
+
+// getters & setters
 
 string Contenders::getFirstName() {
 
@@ -116,6 +121,9 @@ void Contenders::getAllUserInfo() {
 
 }
 
+// Transform User To Conterder
+// After the supervisors have been chosen, each user will be listed as a contender
+
 void Contenders::roleAllocation() {
 
     for (auto i = listOfUsers.begin(); i != listOfUsers.end(); ++i) {
@@ -149,6 +157,9 @@ void Contenders::showAll() {
 
 }
 
+// Group contenders into teams to create a relationship between supervisor and contender
+// Each team is limited to 11 members
+
 void Contenders::teamAllocation(){
 
     listOfContendersCopy = listOfContenders;
@@ -178,6 +189,8 @@ void Contenders::teamAllocation(){
     }
 
 }
+
+// This method shows that the teams have been correctly made and can move on.
 
 void Contenders::searchByTeam(){
 

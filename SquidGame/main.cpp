@@ -78,7 +78,7 @@ int main() {
     contender1.setTeamID(k->getTeamID());
 
     cout << endl << endl;
-    cout << "Concurentul castigator este: ";
+    cout << "The Big Winner is: ";
     contender1.getAllUserInfo();
     cout << endl << endl;
 
@@ -91,7 +91,7 @@ int main() {
     int rectangularEarnings = 0;
     int ok = 0;
 
-    cout << "Castigurile supervisorilor: ";
+    cout << "Supervisors earnings: ";
     cout << endl << endl;
     for(auto k = listOfSupervisors.begin(); k != listOfSupervisors.end(); ++k){
 
@@ -109,7 +109,7 @@ int main() {
         }
 
 
-        if(k->getMask() == "Rectengular"){
+        if(k->getMask() == "Rectangular"){
             rectangularEarnings += k->getSupervisorPrize();
             ok = 3;
         }

@@ -2,6 +2,8 @@
 // Created by george_cosmin.baciu on 14.01.2022.
 //
 
+// This class is for imput.
+
 #ifndef SQUIDGAME_USERS_H
 #define SQUIDGAME_USERS_H
 #include <iostream>

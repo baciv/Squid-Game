@@ -20,12 +20,17 @@ using namespace std;
 extern vector<Contenders> listOfContenders;
 extern vector<Supervisors> listOfSupervisors;
 
+// Game Destructor
+// I gave him the use of indicating the end game
+
 RedLightGreenLight::~RedLightGreenLight(void) {
 
     cout << endl << "Game Red Light Green Light is over." << endl <<
          "----------------------------------------------" << endl;
 
 }
+
+// Method that determines the effects of the game on contenders
 
 void RedLightGreenLight::startGame() {
 
@@ -34,6 +39,9 @@ void RedLightGreenLight::startGame() {
          "Game Red Light Green Light has begun." << endl << endl;
 
     cout << "The following contenders will proceed to the next stage: ";
+
+    // Game rules: Even Number = eliminate
+    //             Odd Number proceed to next stage
 
 
     for (auto i = listOfContenders.begin(); i != listOfContenders.end(); ++i) {
