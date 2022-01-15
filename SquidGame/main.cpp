@@ -23,19 +23,14 @@ extern vector<Supervisors> listOfSupervisors;
 
 int main() {
 
-    //srand(time(0));
-    //int i = rand();
-    //cout << i;
+    // Import users from Database
+
 
     Users user;
     user.importUsers();
-    //user.getAllUserInfo();
-    //user.showAll();
-    //cout << endl << "Ok" << endl;
 
-    //Contenders contender;
-    //contender.roleAllocation();
 
+    // Transform users into supervisors and contenders.
 
 
     Supervisors supervisors;
@@ -45,25 +40,33 @@ int main() {
     Contenders contenders;
     contenders.roleAllocation();
     contenders.teamAllocation();
-    //contenders.showAll();
     contenders.searchByTeam();
+
+    // Red Light Green Light Game
 
     RedLightGreenLight* rlgl = new RedLightGreenLight;
     rlgl->startGame();
-    //contenders.showAll();
     delete rlgl;
+
+    // Tug Of War Game
 
     TugOfWar* tow = new TugOfWar;
     tow->startGame();
     delete tow;
 
+    // Marbles Game
+
     Marbles* mrbls = new Marbles;
     mrbls->startGame();
     delete mrbls;
 
+    // Genken Game
+
     Genken* genken = new Genken;
     genken->startGame();
     delete genken;
+
+    // Show the biggest Winner of Squid Game
 
     Contenders contender1;
 
